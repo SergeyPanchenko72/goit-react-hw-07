@@ -2,14 +2,9 @@ import css from "./Contact.module.css";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsTelephoneFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
 
-export default function Contact({
-  data: {
-    id,
-    info: { name, number },
-  },
-}) {
+export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();
   return (
     <div className={css.container}>

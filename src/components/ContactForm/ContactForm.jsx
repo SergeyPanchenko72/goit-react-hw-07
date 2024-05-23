@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { Formik, Form, Field } from "formik";
 import { ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import * as Yup from "yup";
 
 export default function ContactForm() {
@@ -19,7 +19,7 @@ export default function ContactForm() {
       .max(50, "Too Long!")
       .required("Required"),
     number: Yup.string()
-      .matches(/^\d{3}-\d{2}-\d{2}$/, "Invalid phone number format")
+      .matches(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number format")
       .required("Required"),
   });
 
